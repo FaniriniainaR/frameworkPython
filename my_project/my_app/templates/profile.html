@@ -1,0 +1,30 @@
+{%extends "base.html"%}
+{%block title%}Profile{%endblock%}
+{%block content%}
+<div class="row">
+    <div class="col-xs-12">
+      <h1 class="heading-2">Votre profil<br>
+      </h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 column-profile col-lg-12">
+      <div class="container-fluid profile-div">
+        <div class="responsive-picture picture-1">
+          <picture><img alt="Placeholder Picture" src="img/picture.svg"></picture>
+        </div>
+        <h5 class="heading-3"> {{user.name}}</h5>
+        <span class="text-element text-2">A propos de vous:</span>
+        <dl class="description-list description-list-1">
+          <dt>Email</dt>
+          <dd>{{user.email}}</dd>
+          <dt>Adresse</dt>
+          <dd>{{user.address}} {{user.ville}}</dd>
+          <dt>Profession</dt>
+          <dd>{{user.job}}</dd>
+          <dt>Telephone</dt>
+          <dd>{{user.telephone}}</dd>
+        </dl><a class="link-text" href="/profile/edit/">Modifier le profil</a></div>
+    </div>
+  </div>
+{%endblock%}

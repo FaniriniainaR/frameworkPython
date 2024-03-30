@@ -1,0 +1,23 @@
+<!-- my_app/templates/home.html -->
+{%extends "base.html"%}
+{%block title%} Home {%endblock%}
+{%block content%}
+    {%if medicine_list%}
+    <div class="row">
+        <div class="col-xs-12">
+          <h1>Liste des médicaments<br>
+          </h1>
+        </div>
+      </div>
+      <div class="row">
+        {%for m in medicine_list%}
+        <div class="col-xs-12 block-column col-sm-4"><span class="glyph block-icon"><i class="coffeecup-icons-design"></i></span>
+          <h4 class="block-heading">{{m.name}}</h4>
+          <p class="paragraph block-para">{{m.description}}</p>
+          <p class="paragraph block-para">{{m.price}} Ar</p>
+          <a class="link-button btn block-button" href="medicine/detail/{{m.pk}}">Voir les détails</a>
+        </div>
+        {%endfor%}
+      </div>
+    {%endif%}
+{%endblock%}

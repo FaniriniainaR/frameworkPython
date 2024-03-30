@@ -1,0 +1,8 @@
+<!-- my_app/templates/profile_edit.html -->
+
+{%extends 'login.html'%}
+{%block title%}Edit{%endblock%}
+{%block operation%}Edit profile{%endblock%}
+{%block action%}{% url 'profile_edit' %}{%endblock%}
+{%block submit%}<button type="submit">Save Changes</button>{%endblock%}
+ 

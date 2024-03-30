@@ -1,0 +1,54 @@
+<!-- charger les feuilles de styles css, font, les fichiers js avec static-->
+{%load static%}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="generator" content="Responsive Bootstrap Builder 2.5.308">
+  <title>{%block title%}Login{%endblock%}</title>
+  <link rel="stylesheet" href="{%static 'css/bootstrap3.min.css'%}">
+  <link rel="stylesheet" href="{%static 'css/wireframe-theme.min.css'%}">
+  <script>document.createElement( "picture" );</script>
+  <script class="picturefill" async="async" src="{%static 'js/picturefill.min.js'%}"></script>
+  <link rel="stylesheet" href="{%static 'css/main.css'%}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Contrail+One">
+</head>
+
+<body class="grid-1">
+  <div class="row">
+    <div class="col-xs-8 col-xs-push-2 column-1 col-lg-6 col-lg-push-3 col-lg-pull-0">
+      <form class="form-container form-horizontal" method="post"  action="{%block action%}{%url 'user_login'%}{%endblock%}">
+        {% csrf_token %}
+        <h5 class="heading-1">{%block operation%} Login {%endblock%}<br></h5>
+        {%for field in form%}
+          {{field.errors}}
+          <label for="{{field.id_for_label}}"class="label control-label">{{field.label}} :</label>
+          {{field}}
+        {%endfor%}
+        {% if error_message %}
+        <script>
+            // Afficher une fenêtre modale avec le message d'erreur
+            alert('{{ error_message }}');
+        </script>
+        {% endif %}
+        {%block submit%}
+        <div class="container-fluid container-1"><button type="submit" class="btn btn-default" formmethod="post">Se connecter</button>
+        </div>
+        <span class="text-element text-1">ou<br>
+        </span>
+        <div class="container-fluid container-1"><a class="link-button btn" href="{%url 'registration'%}">Créer un compte</a>
+        </div>
+        {%endblock%}
+      </form>
+    </div>
+  </div>
+  <script src="{%static 'js/jquery.min.js'%}"></script>
+  <script src="{%static 'js/outofview.js'%}"></script>
+  <script src="{%static 'js/bootstrap.min.js'%}"></script>
+</body>
+
+</html>
